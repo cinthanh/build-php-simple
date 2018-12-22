@@ -13,9 +13,8 @@ class Router
         $this->_routes = $routes;
     }
 
-    public function direct() //
+    public function direct($uri) //
     {
-        $uri = $this->_url(); ## issue uri = / or // or /// -> solution trim()
         if (array_key_exists($uri, $this->_routes)) {
             return 'app/' . $this->_routes[$uri];
         } else {
@@ -23,10 +22,15 @@ class Router
         }
     }
 
-    private function _url()
+    public static function load($file)
     {
-        return trim($_SERVER['REQUEST_URI'],'/');
+        //TODO: @create load fn
+        $router = new static; ## remember
+
+        require_once 'app/' . $file;
+        return $router;
     }
+
     public function getRoutes()
     {
         return $this->_routes;

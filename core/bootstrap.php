@@ -11,8 +11,8 @@ require_once 'core/Router.php';
     # required routes defined
     require_once 'app/routes.php';
 
-
-    require_once $router->direct('service'); // handle request from inside
+    //echo "<pre>";print_r($_SERVER);echo "</pre>";die; # debug for REQUEST_URI
+    require_once $router->direct(); // handle request from inside
 
 
 

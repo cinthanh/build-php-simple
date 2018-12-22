@@ -4,7 +4,7 @@
 require_once 'configs.php';
 
 //## @improve code
-require_once Routerx::load('routes.php')
+require_once Route::load('routes.php')
         ->direct( Request::uri(), Request::method() );
 
 # required database

@@ -1,8 +1,7 @@
 <?php
 
-$router->get('','controllers/home.php');
-$router->get('about','controllers/about.php');
-$router->get('service','controllers/service.php');
+Route::get('','controllers/home.php');
+Route::get('about','controllers/about.php');
+Route::get('service','controllers/service.php');
 
-$router->post('names', 'controllers/add-name.php');
-
+Route::post('names', 'controllers/add-name.php');

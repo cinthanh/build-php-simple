@@ -1,7 +1,7 @@
 <?php
 
 # required bootstrap
-
+require_once 'core/bootstrap.php';
 
 
 # defined routes

@@ -5,7 +5,10 @@ class Router
 {
 
 
-    protected $_routes = [];
+    protected $_routes = [
+        'POST' => [],
+        'GET' => [],
+    ];
 
 
     public function define($routes)
@@ -13,10 +16,20 @@ class Router
         $this->_routes = $routes;
     }
 
-    public function direct($uri) //
+    public function get($uri, $controller)
     {
-        if (array_key_exists($uri, $this->_routes)) {
-            return 'app/' . $this->_routes[$uri];
+        $this->_routes['GET'][$uri] = $controller;
+    }
+
+    public function post($uri, $controller)
+    {
+        $this->_routes['POST'][$uri] = $controller;
+    }
+
+    public function direct($uri, $requestType) //
+    {
+        if (array_key_exists($uri, $this->_routes[$requestType])) {
+            return 'app/' . $this->_routes[$requestType][$uri];
         } else {
             die('Request not exist');
         }

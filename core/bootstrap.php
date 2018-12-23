@@ -4,6 +4,10 @@
 //require_once 'configs.php';
 require_once 'core/fn_common.php';
 
+use App\Core\App;
+use App\Core\Route;
+use App\Core\Request;
+
 App::bind('configs', require_once 'configs.php');
 
 

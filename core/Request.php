@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: king
- * Date: 12/22/18
- * Time: 10:39 AM
- */
+namespace App\Core;
 
 class Request
 {

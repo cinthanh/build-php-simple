@@ -1,5 +1,6 @@
 <?php
 
+namespace App\Core;
 
 class Route
 {
@@ -35,6 +36,7 @@ class Route
 
     protected function _callAction($controller, $action)
     {
+        $controller = "App\\Controller\\{$controller}";
         $controller = new $controller;
         if ( ! method_exists($controller, $action)) {
             throw new Exception("Class {$controller} not has method {$action}");

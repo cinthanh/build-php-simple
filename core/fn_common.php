@@ -12,8 +12,8 @@ if ( !function_exists('view')) {
 }
 
 if (!function_exists('redirect')) {
-    function redirect($url) {
-        header("Location: /{$url}");
+    function redirect($path) {
+        header("Location: /{$path}");
     }
 }
 

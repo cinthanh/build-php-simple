@@ -2,12 +2,13 @@
 
 # init configs
 //require_once 'configs.php';
+require_once 'core/fn_common.php';
 
 App::bind('configs', require_once 'configs.php');
 
 
 //## @improve code
-require_once Route::load('routes.php')
+Route::load('routes.php')
         ->direct( Request::uri(), Request::method() );
 
 # required database

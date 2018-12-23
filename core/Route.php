@@ -11,11 +11,6 @@ class Route
     ];
 
 
-    public function define($routes)
-    {
-        static::$_routes = $routes;
-    }
-
     public static function get($uri, $controller)
     {
         static::$_routes['GET'][$uri] = $controller;
@@ -29,10 +24,23 @@ class Route
     public function direct($uri, $requestType) //
     {
         if (array_key_exists($uri, static::$_routes[$requestType])) {
-            return 'app/' . static::$_routes[$requestType][$uri];
+
+            return $this->_callAction(
+                ...explode('@', static::$_routes[$requestType][$uri])
+            );
         } else {
             die('Request not exist');
         }
+    }
+
+    protected function _callAction($controller, $action)
+    {
+        $controller = new $controller;
+        if ( ! method_exists($controller, $action)) {
+            throw new Exception("Class {$controller} not has method {$action}");
+        }
+
+        return $controller->$action(); ## return (new $controller)->$action();
     }
 
     public static function load($file)

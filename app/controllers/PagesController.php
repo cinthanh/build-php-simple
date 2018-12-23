@@ -1,10 +1,16 @@
 <?php
 namespace App\Controller;
 
+use App\Models\Patient;
+
 class PagesController
 {
     public function home()
     {
+
+        $b = (new Patient)->all();
+        echo "<pre>";print_r($b);echo "</pre>";die;
+
         $data = [
             'isTs' => 'this is TypeScript',
             'isJs' => 'this is JavaScript'

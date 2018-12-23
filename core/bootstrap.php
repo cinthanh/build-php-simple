@@ -10,6 +10,7 @@ use App\Core\Request;
 
 App::bind('configs', require_once 'configs.php');
 
+$a = App::get('configs');
 
 //## @improve code
 Route::load('routes.php')
